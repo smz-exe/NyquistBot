@@ -293,6 +293,8 @@ export async function execute(interaction) {
     `;
 
         const browser = await puppeteer.launch({
+            executablePath:
+                process.env.CHROME_BIN || "/usr/bin/chromium-browser",
             args: ["--no-sandbox", "--disable-setuid-sandbox"],
         });
         const page = await browser.newPage();
@@ -317,6 +319,8 @@ export async function execute(interaction) {
         // テスト終了後に解答を送信
         setTimeout(async () => {
             const browser = await puppeteer.launch({
+                executablePath:
+                    process.env.CHROME_BIN || "/usr/bin/chromium-browser",
                 args: ["--no-sandbox", "--disable-setuid-sandbox"],
             });
             const page = await browser.newPage();

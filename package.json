@@ -4,7 +4,8 @@
     "description": "DiscordBot for Attendance Record",
     "main": "main.mjs",
     "scripts": {
-        "start": "node import.mjs && node main.mjs"
+        "start": "node main.mjs",
+        "postinstall": "puppeteer install"
     },
     "dependencies": {
         "@discordjs/voice": "^0.17.0",
