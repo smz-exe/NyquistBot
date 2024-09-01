@@ -4,8 +4,12 @@
 npm install
 # npm run build # uncomment if required
 
-# Install Japanese fonts
-apt-get update && apt-get install -y fonts-noto-cjk
+# Install Japanese fonts using a different method if apt-get is not available
+if command -v apt-get >/dev/null 2>&1; then
+    sudo apt-get update && sudo apt-get install -y fonts-noto-cjk
+else
+    echo "apt-get is not available. Please use a Dockerfile to install fonts."
+fi
 
 # Store/pull Puppeteer cache with build cache
 if [[ ! -d $PUPPETEER_CACHE_DIR ]]; then
