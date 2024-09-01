@@ -38,18 +38,6 @@ export default async () => {
                 { body: commands }
             );
 
-            await rest.put(
-                Routes.applicationCommands(
-                    process.env.APPLICATION_ID,
-                    process.env.GUILD_ID
-                ),
-                { body: commands }
-            );
-
-            console.log(
-                `[INIT] ${commands.length}つのスラッシュコマンドをサーバー(${process.env.GUILD_ID})に更新しました。`
-            );
-
             console.log(
                 `[INIT] ${commands.length}つのスラッシュコマンドを更新しました。`
             );
