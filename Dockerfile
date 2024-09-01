@@ -16,5 +16,9 @@ COPY . .
 # npm依存関係をインストール
 RUN npm install
 
+# start.shを実行可能にする
+RUN chmod +x ./start.sh
+
 # シェルスクリプトを実行
 CMD ["./start.sh"]
+
