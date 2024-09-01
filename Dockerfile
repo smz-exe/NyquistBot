@@ -16,5 +16,5 @@ COPY . .
 # npm依存関係をインストール
 RUN npm install
 
-# アプリケーションを実行
-CMD ["node", "main.mjs"]
+# シェルスクリプトを実行
+CMD ["./start.sh"]
