@@ -21,13 +21,17 @@ npm install\n\
 # npm run build # uncomment if required\n\
 \n\
 # Store/pull Puppeteer cache with build cache\n\
-if [[ ! -d $PUPPETEER_CACHE_DIR ]]; then \n\
+if [[ -d $XDG_CACHE_HOME/puppeteer ]]; then \n\
   echo "...Copying Puppeteer Cache from Build Cache" \n\
-  cp -R $XDG_CACHE_HOME/puppeteer/ $PUPPETEER_CACHE_DIR \n\
+  cp -R $XDG_CACHE_HOME/puppeteer/ $PUPPETEER_CACHE_DIR\n\
 else \n\
+  echo "...Puppeteer Cache not found in Build Cache, skipping copy."\n\
+fi\n\
+if [[ -d $PUPPETEER_CACHE_DIR ]]; then \n\
   echo "...Storing Puppeteer Cache in Build Cache" \n\
-  cp -R $PUPPETEER_CACHE_DIR $XDG_CACHE_HOME \n\
+  cp -R $PUPPETEER_CACHE_DIR $XDG_CACHE_HOME/puppeteer/\n\
 fi' > /usr/src/app/build-script.sh
+
 
 # スクリプトを実行可能にする
 RUN chmod +x /usr/src/app/build-script.sh
