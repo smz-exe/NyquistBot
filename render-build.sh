@@ -4,6 +4,9 @@
 npm install
 # npm run build # uncomment if required
 
+# Install Japanese fonts
+apt-get update && apt-get install -y fonts-noto-cjk
+
 # Store/pull Puppeteer cache with build cache
 if [[ ! -d $PUPPETEER_CACHE_DIR ]]; then
   echo "...Copying Puppeteer Cache from Build Cache"
