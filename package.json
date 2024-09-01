@@ -4,7 +4,7 @@
     "description": "DiscordBot for Attendance Record",
     "main": "main.mjs",
     "scripts": {
-        "start": "node main.mjs"
+        "start": "node import.mjs && node main.mjs"
     },
     "dependencies": {
         "@discordjs/voice": "^0.17.0",
