@@ -13,20 +13,20 @@ WORKDIR /usr/src/app
 # アプリケーションコードをコピー
 COPY . .
 
-# npm依存関係をインストール
-RUN npm install
-
 # Puppeteerキャッシュ処理用のビルドスクリプトを作成
 RUN echo '#!/usr/bin/env bash\n\
 # exit on errorset -o errexit\n\
 \n\
+npm install\n\
+# npm run build # uncomment if required\n\
+\n\
 # Store/pull Puppeteer cache with build cache\n\
 if [[ ! -d $PUPPETEER_CACHE_DIR ]]; then \n\
   echo "...Copying Puppeteer Cache from Build Cache" \n\
-  cp -R $XDG_CACHE_HOME/puppeteer/ $PUPPETEER_CACHE_DIR/ \n\
+  cp -R $XDG_CACHE_HOME/puppeteer/ $PUPPETEER_CACHE_DIR \n\
 else \n\
   echo "...Storing Puppeteer Cache in Build Cache" \n\
-  cp -R $PUPPETEER_CACHE_DIR/* $XDG_CACHE_HOME/puppeteer/ \n\
+  cp -R $PUPPETEER_CACHE_DIR $XDG_CACHE_HOME \n\
 fi' > /usr/src/app/build-script.sh
 
 # スクリプトを実行可能にする
