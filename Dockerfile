@@ -1,5 +1,5 @@
 # ベースイメージを指定
-FROM node:16
+FROM node:20
 
 # 必要なパッケージをインストール
 RUN apt-get update && apt-get install -y \
