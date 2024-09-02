@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 # exit on errorset -o errexit
 
+# .envファイルの読み込み
+if [ -f .env ]; then
+  export $(cat .env | xargs)
+fi
+
+echo "PUPPETEER_CACHE_DIR is set to: $PUPPETEER_CACHE_DIR"
+
 npm install
 npx puppeteer install
 # npm run build # uncomment if required
