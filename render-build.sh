@@ -4,7 +4,11 @@
 # PUPPETEER_CACHE_DIRを手動で指定
 PUPPETEER_CACHE_DIR=/opt/render/project/puppeteer
 
+# XDG_CACHE_HOMEを手動で指定
+XDG_CACHE_HOME=/root/.cache
+
 echo "PUPPETEER_CACHE_DIR is set to: $PUPPETEER_CACHE_DIR"
+echo "XDG_CACHE_HOME is set to: $XDG_CACHE_HOME"
 
 npm install
 npx puppeteer install
