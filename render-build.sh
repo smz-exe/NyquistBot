@@ -1,26 +1,14 @@
 #!/usr/bin/env bash
 # exit on errorset -o errexit
 
-# .envファイルの場所を検索してログに出力
-env_file_path=$(find / -name ".env" 2>/dev/null)
-
-if [ -n "$env_file_path" ]; then
-  echo ".env file found at: $env_file_path"
-else
-  echo ".env file not found"
-fi
-
-# .envファイルの読み込み
-if [ -f "$env_file_path" ]; then
-  set -o allexport
-  source "$env_file_path"
-  set +o allexport
-fi
+# PUPPETEER_CACHE_DIRを手動で指定
+PUPPETEER_CACHE_DIR=/opt/render/project/puppeteer
 
 echo "PUPPETEER_CACHE_DIR is set to: $PUPPETEER_CACHE_DIR"
 
 npm install
 npx puppeteer install
+# npm run build # uncomment if required
 
 # Store/pull Puppeteer cache with build cache
 if [[ ! -d $PUPPETEER_CACHE_DIR ]]; then
