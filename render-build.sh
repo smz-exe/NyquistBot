@@ -3,9 +3,12 @@
 
 # .envファイルの読み込み
 if [ -f .env ]; then
-  export $(cat .env | xargs)
+  set -o allexport
+  source .env
+  set +o allexport
 fi
 
+echo "Loaded PUPPETEER_CACHE_DIR: $PUPPETEER_CACHE_DIR"
 echo "PUPPETEER_CACHE_DIR is set to: $PUPPETEER_CACHE_DIR"
 
 npm install
