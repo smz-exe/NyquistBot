@@ -195,8 +195,9 @@ export async function execute(interaction) {
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <style>
+          @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
             body {
-              font-family: 'Arial', sans-serif;
+              font-family: 'Noto Sans JP', sans-serif;
               background-color: #f9f9f9;
               color: #333;
               margin: 0;
