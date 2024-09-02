@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # exit on errorset -o errexit
 
+if [ -f /usr/src/app/.env ]; then
+  echo ".env file found at /usr/src/app/.env"
+else
+  echo ".env file not found at /usr/src/app/.env"
+fi
+
 # .envファイルの読み込み
 if [ -f .env ]; then
   set -o allexport
